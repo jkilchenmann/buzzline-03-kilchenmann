@@ -97,15 +97,15 @@ def generate_messages(file_path: pathlib.Path):
                 csv_reader = csv.DictReader(csv_file)
                 for row in csv_reader:
                     # Ensure required fields are present
-                    if "temperature" not in row:
-                        logger.error(f"Missing 'temperature' column in row: {row}")
+                    if "age" not in row:
+                        logger.error(f"Missing 'age' column in row: {row}")
                         continue
 
                     # Generate a timestamp and prepare the message
                     current_timestamp = datetime.utcnow().isoformat()
                     message = {
-                        "timestamp": current_timestamp,
-                        "temperature": float(row["temperature"]),
+                        "year": year,
+                        "age": float(row["age"]),
                     }
                     logger.debug(f"Generated message: {message}")
                     yield message

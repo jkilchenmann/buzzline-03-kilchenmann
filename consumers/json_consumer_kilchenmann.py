@@ -70,7 +70,6 @@ author_counts = defaultdict(int)
 # Function to process a single message
 # #####################################
 
-
 def process_message(message: str) -> None:
     """
     Process a single JSON message from Kafka.
@@ -90,9 +89,17 @@ def process_message(message: str) -> None:
 
         # Ensure it's a dictionary before accessing fields
         if isinstance(message_dict, dict):
-            # Extract the 'author' field from the Python dictionary
+            # Extract the 'author' and 'message' fields
             author = message_dict.get("author", "unknown")
+            message_text = message_dict.get("message", "")
+
             logger.info(f"Message received from author: {author}")
+
+            # Check if the message contains the target phrase
+            if message_text == "My name is Justin":
+                logger.warning("ALERT: Watch out for Justin!")
+
+                # Additional alert logic can be added here (e.g., send email, Slack notification)
 
             # Increment the count for the author
             author_counts[author] += 1

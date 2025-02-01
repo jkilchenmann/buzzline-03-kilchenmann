@@ -95,6 +95,7 @@ def generate_messages(file_path: pathlib.Path):
                 logger.info(f"Reading data from file: {DATA_FILE}")
 
                 csv_reader = csv.DictReader(csv_file)
+                csv_reader.fieldnames = [field.strip() for field in csv_reader.fieldnames]
                 for row in csv_reader:
                     # Ensure required fields are present
                     if "age" not in row:

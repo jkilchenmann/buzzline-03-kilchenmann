@@ -1,4 +1,4 @@
-# buzzline-03-case
+# buzzline-03-kilchenmann
 
 Streaming data does not have to be simple text.
 Many of us are familiar with streaming video content and audio (e.g. music) files. 
@@ -47,13 +47,13 @@ Windows:
 
 ```shell
 .venv\Scripts\activate
-py -m producers.json_producer_case
+py -m producers.json_producer_kilchenmann
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m producers.json_producer_case
+python3 -m producers.json_producer_kilchenmann
 ```
 
 What did we name the topic used with JSON data? 
@@ -69,17 +69,14 @@ Use the commands below to activate .venv, and start the consumer.
 Windows:
 ```shell
 .venv\Scripts\activate
-py -m consumers.json_consumer_case
+py -m consumers.json_consumer_kilchenmann
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.json_consumer_case
+python3 -m consumers.json_consumer_kilchenmann
 ```
-
-What did we name the topic used with JSON data? 
-Hint: See the consumer code and [.env](.env).
 
 ## Task 7. Start a CSV Producer
 
@@ -87,12 +84,19 @@ Follow a similar process to start the csv producer.
 You will need to:
 1. Open a new terminal. 
 2. Activate your .venv.
-3. Know the command that works on your machine to execute python (e.g. py or python3).
-4. Know how to use the -m (module flag to run your file as a module).
-5. Know the full name of the module you want to run. Hint: Look in the producers folder.
+3. 
+Windows:
 
-What did we name the topic used with csv data? 
-Hint: See the producer code and [.env](.env).
+```shell
+.venv\Scripts\activate
+py -m producers.csv_producer_kilchenmann
+```
+
+Mac/Linux:
+```zsh
+source .venv/bin/activate
+python3 -m producers.csv_producer_kilchenmann
+```
 
 ## Task 8. Start a CSV Consumer
 
@@ -100,29 +104,17 @@ Follow a similar process to start the csv consumer.
 You will need to:
 1. Open a new terminal. 
 2. Activate your .venv.
-3. Know the command that works on your machine to execute python (e.g. py or python3).
-4. Know how to use the -m (module flag to run your file as a module).
-5. Know the full name of the module you want to run. Hint: Look in the consumers folder.
+3. Windows:
+```shell
+.venv\Scripts\activate
+py -m consumers.csv_consumer_kilchenmann
+```
 
-What did we name the topic used with csv data? 
-Hint: See the consumer code and [.env](.env).
-
-## About the Smart Smoker (CSV Example)
-
-A food stall occurs when the internal temperature of food plateaus or 
-stops rising during slow cooking, typically between 150°F and 170°F. 
-This happens due to evaporative cooling as moisture escapes from the 
-surface of the food. The plateau can last for hours, requiring 
-adjustments like wrapping the food or raising the cooking temperature to 
-overcome it. Cooking should continue until the food reaches the 
-appropriate internal temperature for safe and proper doneness.
-
-The producer simulates a smart food thermometer, sending a temperature 
-reading every 15 seconds. The consumer monitors these messages and 
-maintains a time window of the last 5 readings. 
-If the temperature varies by less than 2 degrees, the consumer alerts 
-the BBQ master that a stall has been detected. This time window helps 
-capture recent trends while filtering out minor fluctuations.
+Mac/Linux:
+```zsh
+source .venv/bin/activate
+python3 -m consumers.csv_consumer_kilchenmann
+```
 
 ## Later Work Sessions
 When resuming work on this project:
